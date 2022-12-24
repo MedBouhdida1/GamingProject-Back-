@@ -1,8 +1,23 @@
 using BackGaming.Data;
+using BackGaming.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("MyAllowSpecificOrigins",
+//                      policy =>
+//                      {
+//                          policy.WithOrigins("https://localhost:4200", "https://localhost:7256")
+//                                .AllowAnyHeader()
+//                                .AllowAnyMethod(); ;
+//                      });
+//});
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -24,6 +39,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(builder =>
+               builder.WithOrigins("*")
+                      .AllowAnyMethod()
+                      .AllowAnyHeader()
+           );
 app.UseAuthorization();
 
 app.MapControllers();

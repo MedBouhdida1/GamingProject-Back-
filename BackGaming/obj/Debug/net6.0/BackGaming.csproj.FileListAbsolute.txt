@@ -80,3 +80,4 @@ C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\obj\Debug\net6.0\refint\BackG
 C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\obj\Debug\net6.0\BackGaming.pdb
 C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\obj\Debug\net6.0\BackGaming.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\obj\Debug\net6.0\ref\BackGaming.dll
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\bin\Debug\net6.0\BCrypt.Net.dll
