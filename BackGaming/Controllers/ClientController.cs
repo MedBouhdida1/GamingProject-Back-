@@ -52,19 +52,49 @@ namespace BackGaming.Controllers
 
         }
 
+
+        //Login for coach and client
         [HttpPost]
         [Route("login")]
         public IActionResult Login(Client client)
         {
-            var user = dbContext.Client.Where(x => x.Email == client.Email).FirstOrDefault();
-            if (user != null)
+            var CoachUser = dbContext.Coach.Where(x => x.Email == client.Email).FirstOrDefault();
+            if (CoachUser != null)
             {
-                bool verified = BCrypt.Net.BCrypt.Verify(client.Password, user.Password);
+                bool verified = BCrypt.Net.BCrypt.Verify(client.Password, CoachUser.Password);
                 if (verified)
                 {
                     var claims = new[]
                     {
-                     new Claim(ClaimTypes.Email, client.Email)
+                     new Claim("Email", client.Email),
+                     new Claim("Role","Coach")
+                    };
+                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"));
+                    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                    var token = new JwtSecurityToken(
+                        issuer: "https://example.com",
+                        audience: "api1",
+                        claims: claims,
+                        expires: DateTime.Now.AddMinutes(30),
+                        signingCredentials: creds);
+
+                    return Ok(new
+                    {
+                        token = new JwtSecurityTokenHandler().WriteToken(token)
+                    });
+                }
+                return Unauthorized("Wrong password");
+            }
+            var Clientuser = dbContext.Client.Where(x => x.Email == client.Email).FirstOrDefault();
+            if (Clientuser != null)
+            {
+                bool verified = BCrypt.Net.BCrypt.Verify(client.Password, Clientuser.Password);
+                if (verified)
+                {
+                    var claims = new[]
+                    {
+                     new Claim("Email", client.Email),
+                     new Claim("Role","Client")
                     };
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"));
                     var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -126,6 +156,19 @@ namespace BackGaming.Controllers
                 return Ok(client);
             }
             return NotFound("User not found");
+        }
+
+        [HttpGet("{email}")]
+        public ActionResult<Client> GetClientByEmail(string email)
+        {
+            var user = dbContext.Client.Where(u => u.Email == email).FirstOrDefault();
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
         }
     }
 
