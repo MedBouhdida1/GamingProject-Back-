@@ -107,8 +107,32 @@ namespace BackGaming.Migrations
                     b.Property<int?>("CoachId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Game")
+                    b.Property<string>("DiscordId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Game")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdInGame")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RankInGame")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Team")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("etat")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

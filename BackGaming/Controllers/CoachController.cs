@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BackGaming.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/coach")]
     public class CoachController : Controller
 
     {
@@ -21,8 +21,11 @@ namespace BackGaming.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCoachs()
         {
-            return Ok(await dbContext.Coach.ToListAsync());
+            return Ok(await dbContext.Coach.Include(c => c.Demandes).ToListAsync());
         }
+
+
+       
 
 
         [HttpDelete]
@@ -51,6 +54,7 @@ namespace BackGaming.Controllers
             {
                 user.FirstName = coach.FirstName;
                 user.LastName = coach.LastName;
+                user.Password = coach.Password;
                 var checkmail = dbContext.Coach.Where(x => x.Email == coach.Email).FirstOrDefault();
                 if ((checkmail != null && checkmail.Email == user.Email) || checkmail == null)
                 {
@@ -64,10 +68,10 @@ namespace BackGaming.Controllers
             return NotFound("User not found");
         }
 
-        [HttpGet("{email}")]
+        [HttpGet("email/{email}")]
         public ActionResult<Coach> GetCoachByEmail(string email)
         {
-            var user = dbContext.Coach.Where(u => u.Email == email).FirstOrDefault();
+            var user = dbContext.Coach.Where(u => u.Email == email).Include(d=>d.Demandes).FirstOrDefault();
 
             if (user == null)
             {
@@ -76,10 +80,21 @@ namespace BackGaming.Controllers
 
             return user;
         }
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult> Get(int id)
+        {
+            var client = await dbContext.Coach.Include(d=>d.Demandes).SingleOrDefaultAsync(d => d.Id == id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(client);
+        }
 
 
 
-        //Only for testing
         [HttpPost]
         [Route("registerCoach")]
         public async Task<IActionResult> addClient([FromBody] Coach coach)
@@ -89,7 +104,9 @@ namespace BackGaming.Controllers
             if (cl == null)
             {
 
-                coach.Password = BCrypt.Net.BCrypt.HashPassword(coach.Password);
+                //coach.Password = BCrypt.Net.BCrypt.HashPassword(coach.Password);
+                coach.Password = coach.Password;
+
                 await dbContext.Coach.AddAsync(coach);
                 await dbContext.SaveChangesAsync();
                 return Ok(coach);

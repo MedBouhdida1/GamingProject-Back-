@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackGaming.Migrations
 {
     [DbContext(typeof(GamingApiDbContext))]
-    [Migration("20221228113916_entities & reltionships")]
-    partial class entitiesreltionships
+    [Migration("20221231103624_etat demande")]
+    partial class etatdemande
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,27 @@ namespace BackGaming.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("BackGaming.Models.AchatService", b =>
+                {
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.HasKey("ClientId", "ServiceId");
+
+                    b.HasIndex("ServiceId");
+
+                    b.ToTable("AchatService");
+                });
 
             modelBuilder.Entity("BackGaming.Models.Client", b =>
                 {
@@ -89,8 +110,32 @@ namespace BackGaming.Migrations
                     b.Property<int?>("CoachId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Game")
+                    b.Property<string>("DiscordId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Game")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdInGame")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RankInGame")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Team")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("etat")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -133,19 +178,23 @@ namespace BackGaming.Migrations
                     b.ToTable("Service");
                 });
 
-            modelBuilder.Entity("ClientService", b =>
+            modelBuilder.Entity("BackGaming.Models.AchatService", b =>
                 {
-                    b.Property<int>("ClientsId")
-                        .HasColumnType("int");
+                    b.HasOne("BackGaming.Models.Client", "Client")
+                        .WithMany("AchatServices")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("ServicesId")
-                        .HasColumnType("int");
+                    b.HasOne("BackGaming.Models.Service", "Service")
+                        .WithMany("AchatServices")
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasKey("ClientsId", "ServicesId");
+                    b.Navigation("Client");
 
-                    b.HasIndex("ServicesId");
-
-                    b.ToTable("ClientService");
+                    b.Navigation("Service");
                 });
 
             modelBuilder.Entity("BackGaming.Models.Demande", b =>
@@ -172,23 +221,10 @@ namespace BackGaming.Migrations
                     b.Navigation("Coach");
                 });
 
-            modelBuilder.Entity("ClientService", b =>
-                {
-                    b.HasOne("BackGaming.Models.Client", null)
-                        .WithMany()
-                        .HasForeignKey("ClientsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BackGaming.Models.Service", null)
-                        .WithMany()
-                        .HasForeignKey("ServicesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("BackGaming.Models.Client", b =>
                 {
+                    b.Navigation("AchatServices");
+
                     b.Navigation("Demande");
                 });
 
@@ -197,6 +233,11 @@ namespace BackGaming.Migrations
                     b.Navigation("Demandes");
 
                     b.Navigation("Services");
+                });
+
+            modelBuilder.Entity("BackGaming.Models.Service", b =>
+                {
+                    b.Navigation("AchatServices");
                 });
 #pragma warning restore 612, 618
         }

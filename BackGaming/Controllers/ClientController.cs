@@ -12,7 +12,7 @@ namespace BackGaming.Controllers
 {
 
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/client")]
     public class ClientController : Controller
     {
         private readonly GamingApiDbContext dbContext;
@@ -29,7 +29,26 @@ namespace BackGaming.Controllers
         [HttpGet]
         public async Task<IActionResult> GetClients()
         {
-            return Ok(await dbContext.Client.ToListAsync());
+            var clients = await dbContext.Client
+                .Include(c => c.Demande)
+                .ToListAsync();
+
+            return Ok(clients);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult> Get(int id)
+        {
+            var client = await dbContext.Client
+                .Include(c => c.Demande)
+                .SingleOrDefaultAsync(d => d.Id == id);
+            if (client == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(client);
         }
 
 
@@ -145,6 +164,7 @@ namespace BackGaming.Controllers
             {
                 user.FirstName = client.FirstName;
                 user.LastName=client.LastName;
+
                 var checkmail = dbContext.Client.Where(x => x.Email == client.Email).FirstOrDefault();
                 if ((checkmail != null && checkmail.Email == user.Email) || checkmail == null)
                 {
@@ -158,11 +178,13 @@ namespace BackGaming.Controllers
             return NotFound("User not found");
         }
 
-        [HttpGet("{email}")]
+        [HttpGet("email/{email}")]
         public ActionResult<Client> GetClientByEmail(string email)
         {
-            var user = dbContext.Client.Where(u => u.Email == email).FirstOrDefault();
-
+            var user = dbContext.Client
+                .Where(u => u.Email == email)
+                .Include(u => u.Demande)
+                .FirstOrDefault();
             if (user == null)
             {
                 return NotFound();
