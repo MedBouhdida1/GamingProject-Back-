@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace BackGaming.Models
 {
-    public class Client
+    public class Coach
     {
 
         [Key]
@@ -13,7 +14,8 @@ namespace BackGaming.Models
         public string? LastName { get; set; }
         public string? Email { get; set; }
         public string? Password { get; set; }
-        public Demande? Demande { get; set; }
-        public ICollection<AchatService>?AchatServices { get; set; }
+
+        public ICollection<Demande>? Demandes { get; set; }
+        public ICollection<Service>? Services { get; set; }
     }
 }
