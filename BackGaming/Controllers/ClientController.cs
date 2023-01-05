@@ -57,11 +57,9 @@ namespace BackGaming.Controllers
         [Route("register")]
         public async Task<IActionResult> addClient([FromBody] Client client)
         {
-
             var cl = dbContext.Client.Where(x => x.Email == client.Email).FirstOrDefault();
             if (cl == null)
             {
-
                 client.Password = BCrypt.Net.BCrypt.HashPassword(client.Password);
                 await dbContext.Client.AddAsync(client);
                 await dbContext.SaveChangesAsync();
