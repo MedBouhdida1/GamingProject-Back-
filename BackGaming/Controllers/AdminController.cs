@@ -22,7 +22,7 @@ namespace BackGaming.Controllers
 
         
         [HttpPost]
-        [Route("admin/register")]
+        [Route("register")]
         public async Task<IActionResult> addAdmin([FromBody] Admin admin)
         {
             var ad = dbContext.Admin.Where(x => x.Username == admin.Username).FirstOrDefault();
@@ -38,7 +38,7 @@ namespace BackGaming.Controllers
 
 
         [HttpPost]
-        [Route("admin/login")]
+        [Route("login")]
         public async Task<IActionResult> adminLogin(Admin? ad)
         {
             var admin = dbContext.Admin.Where(x => x.Username == ad.Username).FirstOrDefault();
@@ -68,13 +68,5 @@ namespace BackGaming.Controllers
             }
             return Unauthorized();
         }
-
-
-
-
-
-
-
-
     }
 }
