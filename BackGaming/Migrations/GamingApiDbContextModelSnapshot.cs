@@ -43,6 +43,21 @@ namespace BackGaming.Migrations
                     b.ToTable("AchatService");
                 });
 
+            modelBuilder.Entity("BackGaming.Models.Admin", b =>
+                {
+                    b.Property<string>("Username")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("Admin");
+                });
+
             modelBuilder.Entity("BackGaming.Models.Client", b =>
                 {
                     b.Property<int>("Id")

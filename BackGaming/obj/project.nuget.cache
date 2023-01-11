@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2kzQnsktsVXqFMNRUWPMI3RkdIweNyYS/Auzz/tIU1WL8tWNga+TY8U3YppDSN0vrsbbjq7JOQLlf8V+Ap8/cw==",
+  "dgSpecHash": "bOCUzPj0XHkJLzr3XW2xBuCJhL9wX7jDhkNWXklPRnjaafp0xM045jwBydOrlVT4+ICPR2QLrhyFVi6nzjsMIQ==",
   "success": true,
-  "projectFilePath": "D:\\ProjetDotNet\\PlatformGaming\\BackGaming\\BackGaming.csproj",
+  "projectFilePath": "D:\\ProjetDotNet\\PlatformGaming\\Backend\\BackGaming\\BackGaming.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

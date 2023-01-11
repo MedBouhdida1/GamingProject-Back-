@@ -23,7 +23,13 @@ namespace BackGaming.Controllers
         {
             this.dbContext = dbContext;
         }
-
+       
+        [HttpGet]
+        [Route("anas")]
+        public String getAnas()
+        {
+            return "gr";
+        }
 
 
         [HttpGet]

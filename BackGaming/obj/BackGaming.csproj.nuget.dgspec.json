@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ProjetDotNet\\PlatformGaming\\BackGaming\\BackGaming.csproj": {}
+    "D:\\ProjetDotNet\\PlatformGaming\\Backend\\BackGaming\\BackGaming.csproj": {}
   },
   "projects": {
-    "D:\\ProjetDotNet\\PlatformGaming\\BackGaming\\BackGaming.csproj": {
+    "D:\\ProjetDotNet\\PlatformGaming\\Backend\\BackGaming\\BackGaming.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ProjetDotNet\\PlatformGaming\\BackGaming\\BackGaming.csproj",
+        "projectUniqueName": "D:\\ProjetDotNet\\PlatformGaming\\Backend\\BackGaming\\BackGaming.csproj",
         "projectName": "BackGaming",
-        "projectPath": "D:\\ProjetDotNet\\PlatformGaming\\BackGaming\\BackGaming.csproj",
+        "projectPath": "D:\\ProjetDotNet\\PlatformGaming\\Backend\\BackGaming\\BackGaming.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\ProjetDotNet\\PlatformGaming\\BackGaming\\obj\\",
+        "outputPath": "D:\\ProjetDotNet\\PlatformGaming\\Backend\\BackGaming\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
