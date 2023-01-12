@@ -1,5 +1,5 @@
 ﻿using BackGaming.Data;
-using BackGaming.Migrations;
+//using BackGaming.Migrations;
 using BackGaming.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
