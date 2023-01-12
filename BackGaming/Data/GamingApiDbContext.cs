@@ -12,6 +12,8 @@ namespace BackGaming.Data
         }
 
 
+
+        public DbSet<Admin> Admin{ get; set; }
         public DbSet<Client> Client { get; set; }
         public DbSet<Coach> Coach { get; set; }
 
