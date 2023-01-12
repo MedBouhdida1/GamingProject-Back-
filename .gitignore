@@ -15,3 +15,5 @@ Testing/bin/
 Testing/obj
 Testing/bin
 Testing/.vs
+.sonarqube/
+.sonarqube
