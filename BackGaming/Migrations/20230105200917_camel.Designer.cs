@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackGaming.Migrations
 {
     [DbContext(typeof(GamingApiDbContext))]
-    [Migration("20221229222519_db")]
-    partial class db
+    [Migration("20230105200917_camel")]
+    partial class camel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -133,6 +133,9 @@ namespace BackGaming.Migrations
                     b.Property<string>("Team")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("etat")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
