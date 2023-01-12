@@ -16,12 +16,12 @@ namespace BackGaming.Data
         }
 
 
-        public DbSet<Admin> Admin { get; set; }
-        public DbSet<Client> Client { get; set; }
-        public DbSet<Coach> Coach { get; set; }
+        public virtual DbSet<Admin> Admin { get; set; }
+        public virtual DbSet<Client> Client { get; set; }
+        public virtual DbSet<Coach> Coach { get; set; }
 
-        public DbSet<Demande> Demande { get; set; }
-        public DbSet<Service> Service { get; set; }
+        public virtual DbSet<Demande> Demande { get; set; }
+        public virtual DbSet<Service> Service { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
