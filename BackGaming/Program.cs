@@ -20,12 +20,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers().AddJsonOptions(x =>
-                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles); 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<GamingApiDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("GamingApiConnectionString")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("GamingApiConnectionString"))); //GamingApiConnectionString
 
 var app = builder.Build();
 
