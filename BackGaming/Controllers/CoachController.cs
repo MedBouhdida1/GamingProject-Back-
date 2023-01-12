@@ -103,9 +103,8 @@ namespace BackGaming.Controllers
             var cl = dbContext.Coach.Where(x => x.Email == coach.Email).FirstOrDefault();
             if (cl == null)
             {
-
+                //Uncomment when adding coach from swagger
                 //coach.Password = BCrypt.Net.BCrypt.HashPassword(coach.Password);
-                coach.Password = coach.Password;
 
                 await dbContext.Coach.AddAsync(coach);
                 await dbContext.SaveChangesAsync();

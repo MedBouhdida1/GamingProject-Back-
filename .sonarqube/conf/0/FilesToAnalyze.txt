@@ -1,0 +1,22 @@
+﻿C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Controllers\ClientController.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Controllers\CoachController.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Controllers\DemandeController.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Data\GamingApiDbContext.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Migrations\20221229222519_db.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Migrations\20221229222519_db.Designer.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Migrations\20221231103624_etat demande.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Migrations\20221231103624_etat demande.Designer.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Migrations\GamingApiDbContextModelSnapshot.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Models\AchatService.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Models\Client.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Models\Coach.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Models\Demande.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Models\Service.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Program.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\obj\Debug\net6.0\BackGaming.GlobalUsings.g.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\obj\Debug\net6.0\BackGaming.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\obj\Debug\net6.0\BackGaming.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\appsettings.Development.json
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\appsettings.json
+C:\Users\ASUS\Desktop\Gaming\BackGaming\BackGaming\Properties\launchSettings.json
