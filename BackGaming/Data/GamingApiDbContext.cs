@@ -12,6 +12,31 @@ namespace BackGaming.Data
         }
 
 
+        public DbSet<Admin> Admin{ get; set; }
         public DbSet<Client> Client { get; set; }
+        public DbSet<Coach> Coach { get; set; }
+
+        public DbSet<Demande> Demande { get; set; }
+        public DbSet<Service> Service {get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Client>()
+                .HasOne(c => c.Demande)
+                .WithOne(d => d.Client)
+                .HasForeignKey<Demande>(d => d.ClientId);
+            modelBuilder.Entity<AchatService>()
+               .HasKey(cs => new { cs.ClientId, cs.ServiceId });
+            modelBuilder.Entity<AchatService>()
+                .HasOne(cs => cs.Client)
+                .WithMany(c => c.AchatServices)
+                .HasForeignKey(cs => cs.ClientId);
+
+            modelBuilder.Entity<AchatService>()
+                .HasOne(cs => cs.Service)
+                .WithMany(s => s.AchatServices)
+                .HasForeignKey(cs => cs.ServiceId);
+        }
     }
 }
