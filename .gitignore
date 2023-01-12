@@ -2,3 +2,6 @@
 .vs/
 BackGaming/.vs
 BackGaming/.vs/
+BackGaming/obj
+BackGaming/bin
+BackGaming/Migrations

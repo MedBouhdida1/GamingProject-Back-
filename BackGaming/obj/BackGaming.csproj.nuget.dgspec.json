@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sispoof\\Source\\Repos\\BackGaming\\BackGaming\\BackGaming.csproj": {}
+    "C:\\Users\\sispoof\\source\\repos\\BackGaming\\BackGaming\\BackGaming.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sispoof\\Source\\Repos\\BackGaming\\BackGaming\\BackGaming.csproj": {
+    "C:\\Users\\sispoof\\source\\repos\\BackGaming\\BackGaming\\BackGaming.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sispoof\\Source\\Repos\\BackGaming\\BackGaming\\BackGaming.csproj",
+        "projectUniqueName": "C:\\Users\\sispoof\\source\\repos\\BackGaming\\BackGaming\\BackGaming.csproj",
         "projectName": "BackGaming",
-        "projectPath": "C:\\Users\\sispoof\\Source\\Repos\\BackGaming\\BackGaming\\BackGaming.csproj",
+        "projectPath": "C:\\Users\\sispoof\\source\\repos\\BackGaming\\BackGaming\\BackGaming.csproj",
         "packagesPath": "C:\\Users\\sispoof\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sispoof\\Source\\Repos\\BackGaming\\BackGaming\\obj\\",
+        "outputPath": "C:\\Users\\sispoof\\source\\repos\\BackGaming\\BackGaming\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sispoof\\AppData\\Roaming\\NuGet\\NuGet.Config",

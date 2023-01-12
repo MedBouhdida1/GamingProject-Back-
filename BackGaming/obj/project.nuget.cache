@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c6Cl6qLLxXPP76QzpRYPPfPBSh1iFOSeCAk2wlj5m+KK5z1P2Olk+N2ZCb59/wgs1KntRxzha4T/i5YHyhiW1g==",
+  "dgSpecHash": "OGVRJrPerY63bGh0MT5knMFPwLY54Wo8LX4e4jC1puib2wqqLuF4QokSVAewIdylEW4ws9IBWNBv4vqmipQtnA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sispoof\\Source\\Repos\\BackGaming\\BackGaming\\BackGaming.csproj",
+  "projectFilePath": "C:\\Users\\sispoof\\source\\repos\\BackGaming\\BackGaming\\BackGaming.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sispoof\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\sispoof\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
