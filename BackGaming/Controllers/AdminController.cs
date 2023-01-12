@@ -11,6 +11,7 @@ namespace BackGaming.Controllers
     [ApiController]
     [Route("api/admin")]
 
+
     public class AdminController : Controller
     {
         private readonly GamingApiDbContext dbContext;
