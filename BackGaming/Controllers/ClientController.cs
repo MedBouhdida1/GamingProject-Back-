@@ -24,7 +24,7 @@ namespace BackGaming.Controllers
             this.dbContext = dbContext;
         }
 
-
+      
 
         [HttpGet]
         public async Task<IActionResult> GetClients()
@@ -102,7 +102,7 @@ namespace BackGaming.Controllers
                         token = new JwtSecurityTokenHandler().WriteToken(token)
                     });
                 }
-                return Unauthorized("Wrong password");
+                return Unauthorized("Wrong password Coach");
             }
             var Clientuser = dbContext.Client.Where(x => x.Email == client.Email).FirstOrDefault();
             if (Clientuser != null)
@@ -129,7 +129,7 @@ namespace BackGaming.Controllers
                         token = new JwtSecurityTokenHandler().WriteToken(token)
                     });
                 }
-                return Unauthorized("Wrong password");
+                return Unauthorized("Wrong password Client");
 
             }
             return NotFound("user not found");
