@@ -1,11 +1,12 @@
 ﻿using BackGaming.Data;
 using BackGaming.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackGaming.Controllers
-{
+{ 
     [ApiController]
-    [Route("api/client")]
+    [Route("api/achatService")]
     public class AchatServiceController : Controller
     {
         private readonly GamingApiDbContext dbContext;
@@ -14,17 +15,22 @@ namespace BackGaming.Controllers
             this.dbContext = dbContext;
         }
         [HttpPost]
-        [Route("register")]
+        [Route("buy")]
         public async Task<IActionResult> addAchatService([FromBody] AchatService achatService)
         {
+                Console.WriteLine(achatService);
+            await dbContext.AchatService.AddAsync(achatService);
+            await dbContext.SaveChangesAsync();
+            return Ok(achatService);
 
-                await dbContext.AchatService.AddAsync(achatService);
-                await dbContext.SaveChangesAsync();
-                return Ok(client);
-         
-            return Unauthorized("Email exist");
+
 
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAchatService()
+        {
+            return Ok(await dbContext.AchatService.Include(c => c.Client).Include(s => s.Service).ToListAsync());
+        }
 
-    }
+    }       
 }
