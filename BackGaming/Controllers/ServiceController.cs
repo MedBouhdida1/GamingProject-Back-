@@ -11,7 +11,6 @@ namespace BackGaming.Controllers
     public class ServiceController : Controller
     {
         private readonly GamingApiDbContext dbContext;
-        private HttpRequestMessage request;
 
         public ServiceController(GamingApiDbContext dbContext)
         {
@@ -32,6 +31,8 @@ namespace BackGaming.Controllers
           
             return servicesByCoach.Count == 0 ? NotFound("Coach has no Service yet") : Ok(servicesByCoach);
         }
+
+
         [HttpPost]
         [Route("add/{coachId:int}")]
         public async Task<IActionResult> addByCoachIdService([FromBody] Service service,int coachId)
@@ -43,16 +44,12 @@ namespace BackGaming.Controllers
             try {
                 await dbContext.Service.AddAsync(service);
                 await dbContext.SaveChangesAsync();
-                return Ok("Added succefully!");
+                return Ok(service);
             }
             catch(Exception ex)
             {
                 return BadRequest("error while saving data to db");
             }
-            
-
-
-            return Ok("hello world");
         }
     }
 }
