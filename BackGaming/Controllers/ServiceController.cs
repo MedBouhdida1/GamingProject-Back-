@@ -11,7 +11,6 @@ namespace BackGaming.Controllers
     public class ServiceController : Controller
     {
         private readonly GamingApiDbContext dbContext;
-        private HttpRequestMessage request;
 
         //
 
