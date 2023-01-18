@@ -18,6 +18,7 @@ namespace BackGaming.Controllers
         [Route("buy")]
         public async Task<IActionResult> addAchatService([FromBody] AchatService achatService)
         {
+
                 Console.WriteLine(achatService);
             await dbContext.AchatService.AddAsync(achatService);
             await dbContext.SaveChangesAsync();
