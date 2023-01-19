@@ -113,7 +113,8 @@ namespace BackGaming.Controllers
                     var claims = new[]
                     {
                      new Claim("Email", client.Email),
-                     new Claim("Role","Client")
+                     new Claim("Role","Client"),
+
                     };
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authentication"));
                     var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

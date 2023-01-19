@@ -22,12 +22,14 @@ namespace BackGaming.Data
 
         public virtual DbSet<Demande> Demande { get; set; }
         public virtual DbSet<Service> Service { get; set; }
+        public virtual DbSet<AchatService> AchatService { get; set; }
 
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-81T5ED7\\SQLEXPRESS;Database=GamingDb;Trusted_Connection=true;TrustServerCertificate=True; ");
-        }
+        //useless function
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    Console.WriteLine("test execution funciton ! ");
+        //    optionsBuilder.UseSqlServer("Server=DESKTOP-81T5ED7\\SQLEXPRESS;Database=GamingDb;Trusted_Connection=true;TrustServerCertificate=True; ");
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Client>()
