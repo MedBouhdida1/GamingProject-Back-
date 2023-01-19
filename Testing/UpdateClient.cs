@@ -23,7 +23,7 @@ namespace Testing
                 LastName = "Doe",
                 Email = "john.doe@example.com"
             };
-            var id = 23; // assume that this is the ID of the client we want to update
+            var id = 4; // assume that this is the ID of the client we want to update
 
             // Act
             var result = await controller.UpdateClient(client, id);
@@ -66,9 +66,9 @@ namespace Testing
             {
                 FirstName = "John",
                 LastName = "Doe",
-                Email = "mohamedbouhdida100@gmail.com"
+                Email = "bouhdidamohamed22@gmail.com"
             };
-            var id = 23; // assume that this is the ID of a client with a different email
+            var id = 3; // assume that this is the ID of a client with a different email
 
             // Act
             var result = await controller.UpdateClient(client, id);

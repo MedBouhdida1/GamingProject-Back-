@@ -131,5 +131,69 @@ namespace Testing
             Assert.AreEqual("user not found", ((NotFoundObjectResult)result).Value);
 
         }
+        [TestMethod]
+        public void TestLogin_EmptyEmail()
+        {
+            // Arrange
+            var dbContext = new GamingApiDbContext();
+            var controller = new ClientController(dbContext);
+            var client = new Client
+            {
+                //empty email
+                Email = "MedBouhdida10@gmail.com",
+                Password = ""
+            };
+
+            // Act
+            var result = controller.Login(client);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(UnauthorizedObjectResult));
+
+        }
+        [TestMethod]
+        public void TestLogin_EmptyPassword()
+        {
+            // Arrange
+            var dbContext = new GamingApiDbContext();
+            var controller = new ClientController(dbContext);
+            var client = new Client
+            {
+                //empty password
+                Email = "",
+                Password = "password"
+            };
+
+            // Act
+            var result = controller.Login(client);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+
+        }
+        [TestMethod]
+        public void TestLogin_EmptyPasswordAndEmail()
+        {
+            // Arrange
+            var dbContext = new GamingApiDbContext();
+            var controller = new ClientController(dbContext);
+            var client = new Client
+            {
+                //empty password and email
+                Email = "",
+                Password = ""
+            };
+
+            // Act
+            var result = controller.Login(client);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+            Assert.AreEqual("user not found", ((NotFoundObjectResult)result).Value);
+
+        }
     }
 }
