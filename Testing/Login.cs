@@ -19,13 +19,14 @@ namespace Testing
         [TestMethod]
         public void TestLoginCoach_Success()
         {
+           
             // Arrange
             var dbContext = new GamingApiDbContext();
             var controller = new ClientController(dbContext);
             var client = new Client
             {
-                Email = "Medali10@gmail.com",
-                Password = "123456789"
+                Email = "ahmed@gmail.com",
+                Password = "root"
             };
 
             // Act
@@ -48,7 +49,7 @@ namespace Testing
             var controller = new ClientController(dbContext);
             var client = new Client
             {
-                Email = "Medali10@gmail.com",
+                Email = "ahmed@gmail.com",
                 Password = "11561812564" //Wrong Password
             };
 
@@ -69,8 +70,8 @@ namespace Testing
             var controller = new ClientController(dbContext);
             var client = new Client
             {
-                Email = "MedBouhdida10@gmail.com",
-                Password = "123456789"
+                Email = "karim@gmail.com",
+                Password = "root"
             };
 
             // Act
@@ -93,7 +94,7 @@ namespace Testing
             var controller = new ClientController(dbContext);
             var client = new Client
             {
-                Email = "MedBouhdida10@gmail.com",
+                Email = "karim@gmail.com",
                 Password = "5948198189484" //Wrong Password
             };
 
@@ -131,6 +132,11 @@ namespace Testing
             Assert.AreEqual("user not found", ((NotFoundObjectResult)result).Value);
 
         }
+<<<<<<< HEAD
+
+        //added
+=======
+>>>>>>> origin
         [TestMethod]
         public void TestLogin_EmptyEmail()
         {
@@ -140,8 +146,13 @@ namespace Testing
             var client = new Client
             {
                 //empty email
+<<<<<<< HEAD
+                Email = "",
+                Password = "sddddsf"
+=======
                 Email = "MedBouhdida10@gmail.com",
                 Password = ""
+>>>>>>> origin
             };
 
             // Act
@@ -149,7 +160,11 @@ namespace Testing
 
             // Assert
             Assert.IsNotNull(result);
+<<<<<<< HEAD
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+=======
             Assert.IsInstanceOfType(result, typeof(UnauthorizedObjectResult));
+>>>>>>> origin
 
         }
         [TestMethod]
@@ -161,8 +176,13 @@ namespace Testing
             var client = new Client
             {
                 //empty password
+<<<<<<< HEAD
+                Email = "karim@gmail.com",
+                Password = ""
+=======
                 Email = "",
                 Password = "password"
+>>>>>>> origin
             };
 
             // Act
@@ -170,7 +190,11 @@ namespace Testing
 
             // Assert
             Assert.IsNotNull(result);
+<<<<<<< HEAD
+            Assert.IsInstanceOfType(result, typeof(UnauthorizedObjectResult));
+=======
             Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+>>>>>>> origin
 
         }
         [TestMethod]

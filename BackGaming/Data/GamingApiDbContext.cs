@@ -28,7 +28,7 @@ namespace BackGaming.Data
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    Console.WriteLine("test execution funciton ! ");
-        //    optionsBuilder.UseSqlServer("Server=DESKTOP-81T5ED7\\SQLEXPRESS;Database=GamingDb;Trusted_Connection=true;TrustServerCertificate=True; ");
+        //    optionsBuilder.UseSqlServer("Server=LAPTOP-IS2DLEJ1;Database=GamingDB;User=sispoof;Password=root;Trusted_Connection=true;TrustServerCertificate=True; ");
         //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
