@@ -19,13 +19,14 @@ namespace Testing
         [TestMethod]
         public void TestLoginCoach_Success()
         {
+           
             // Arrange
             var dbContext = new GamingApiDbContext();
             var controller = new ClientController(dbContext);
             var client = new Client
             {
-                Email = "Medali10@gmail.com",
-                Password = "123456789"
+                Email = "ahmed@gmail.com",
+                Password = "root"
             };
 
             // Act
@@ -48,7 +49,7 @@ namespace Testing
             var controller = new ClientController(dbContext);
             var client = new Client
             {
-                Email = "Medali10@gmail.com",
+                Email = "ahmed@gmail.com",
                 Password = "11561812564" //Wrong Password
             };
 
@@ -69,8 +70,8 @@ namespace Testing
             var controller = new ClientController(dbContext);
             var client = new Client
             {
-                Email = "MedBouhdida10@gmail.com",
-                Password = "123456789"
+                Email = "karim@gmail.com",
+                Password = "root"
             };
 
             // Act
@@ -93,7 +94,7 @@ namespace Testing
             var controller = new ClientController(dbContext);
             var client = new Client
             {
-                Email = "MedBouhdida10@gmail.com",
+                Email = "karim@gmail.com",
                 Password = "5948198189484" //Wrong Password
             };
 
@@ -120,6 +121,72 @@ namespace Testing
                 //Wrong data
                 Email = "nonexistent@example.com",
                 Password = "password"
+            };
+
+            // Act
+            var result = controller.Login(client);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+            Assert.AreEqual("user not found", ((NotFoundObjectResult)result).Value);
+
+        }
+
+        //added
+        [TestMethod]
+        public void TestLogin_EmptyEmail()
+        {
+            // Arrange
+            var dbContext = new GamingApiDbContext();
+            var controller = new ClientController(dbContext);
+            var client = new Client
+            {
+                //empty email
+                Email = "",
+                Password = "sddddsf"
+            };
+
+            // Act
+            var result = controller.Login(client);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+
+        }
+        [TestMethod]
+        public void TestLogin_EmptyPassword()
+        {
+            // Arrange
+            var dbContext = new GamingApiDbContext();
+            var controller = new ClientController(dbContext);
+            var client = new Client
+            {
+                //empty password
+                Email = "karim@gmail.com",
+                Password = ""
+            };
+
+            // Act
+            var result = controller.Login(client);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsInstanceOfType(result, typeof(UnauthorizedObjectResult));
+
+        }
+        [TestMethod]
+        public void TestLogin_EmptyPasswordAndEmail()
+        {
+            // Arrange
+            var dbContext = new GamingApiDbContext();
+            var controller = new ClientController(dbContext);
+            var client = new Client
+            {
+                //empty password and email
+                Email = "",
+                Password = ""
             };
 
             // Act
