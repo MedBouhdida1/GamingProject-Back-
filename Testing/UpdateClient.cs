@@ -66,7 +66,11 @@ namespace Testing
             {
                 FirstName = "John",
                 LastName = "Doe",
+<<<<<<< HEAD
                 Email = "ahmed@gmail.com"
+=======
+                Email = "bouhdidamohamed22@gmail.com"
+>>>>>>> origin
             };
             var id = 3; // assume that this is the ID of a client with a different email
 

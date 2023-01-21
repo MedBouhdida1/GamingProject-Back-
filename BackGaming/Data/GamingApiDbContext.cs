@@ -22,6 +22,7 @@ namespace BackGaming.Data
 
         public virtual DbSet<Demande> Demande { get; set; }
         public virtual DbSet<Service> Service { get; set; }
+        public virtual DbSet<AchatService> AchatService { get; set; }
 
         //useless function
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

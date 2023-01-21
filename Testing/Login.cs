@@ -132,8 +132,11 @@ namespace Testing
             Assert.AreEqual("user not found", ((NotFoundObjectResult)result).Value);
 
         }
+<<<<<<< HEAD
 
         //added
+=======
+>>>>>>> origin
         [TestMethod]
         public void TestLogin_EmptyEmail()
         {
@@ -143,8 +146,13 @@ namespace Testing
             var client = new Client
             {
                 //empty email
+<<<<<<< HEAD
                 Email = "",
                 Password = "sddddsf"
+=======
+                Email = "MedBouhdida10@gmail.com",
+                Password = ""
+>>>>>>> origin
             };
 
             // Act
@@ -152,7 +160,11 @@ namespace Testing
 
             // Assert
             Assert.IsNotNull(result);
+<<<<<<< HEAD
             Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+=======
+            Assert.IsInstanceOfType(result, typeof(UnauthorizedObjectResult));
+>>>>>>> origin
 
         }
         [TestMethod]
@@ -164,8 +176,13 @@ namespace Testing
             var client = new Client
             {
                 //empty password
+<<<<<<< HEAD
                 Email = "karim@gmail.com",
                 Password = ""
+=======
+                Email = "",
+                Password = "password"
+>>>>>>> origin
             };
 
             // Act
@@ -173,7 +190,11 @@ namespace Testing
 
             // Assert
             Assert.IsNotNull(result);
+<<<<<<< HEAD
             Assert.IsInstanceOfType(result, typeof(UnauthorizedObjectResult));
+=======
+            Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
+>>>>>>> origin
 
         }
         [TestMethod]
