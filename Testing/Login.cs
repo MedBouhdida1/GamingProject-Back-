@@ -149,10 +149,8 @@ namespace Testing
 <<<<<<< HEAD
                 Email = "",
                 Password = "sddddsf"
-=======
-                Email = "MedBouhdida10@gmail.com",
-                Password = ""
->>>>>>> origin
+
+
             };
 
             // Act
